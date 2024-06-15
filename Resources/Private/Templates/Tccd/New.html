@@ -1,0 +1,32 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:layout name="Default" />
+
+This template displays a NEW form for the current domain object.
+
+If you modify this template, do not forget to change the overwrite settings
+in /Configuration/ExtensionBuilder/settings.yaml:
+  Resources:
+    Private:
+      Templates:
+        Tccd:
+          New.html: keep
+
+Otherwise your changes will be overwritten the next time you save the extension in the extension builder
+
+<f:section name="content">
+    <h1>New Tccd</h1>
+
+    <f:comment>Flash Messages [21] - Output of FlashMessages specified in Php in Fluid Template</f:comment>
+    <f:flashMessages />
+
+    <f:if condition="{feuserIsLoggedIn}">
+        <f:render partial="FormErrors" />
+
+        <f:form action="create" name="newTccd" object="{newTccd}">
+            <f:render partial="Tccd/FormFields" />
+            <f:form.submit value="Create new" />
+        </f:form>
+    </f:if>
+
+</f:section>
+</html>

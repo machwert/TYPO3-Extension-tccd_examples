@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="EXT:tccd_examples/Resources/Private/Language/locallang_db.xlf" date="2024-01-30T13:30:45Z" product-name="tccd_examples">
+		<header/>
+		<body>
+			<trans-unit id="pi_flexform.sheetGeneral" resname="pi_flexform.sheetGeneral">
+				<source>Tccd Plugin</source>
+			</trans-unit>
+			<trans-unit id="singlePid" resname="singlePid">
+				<source>Single Page ID</source>
+			</trans-unit>
+			<trans-unit id="listPid" resname="listPid">
+				<source>List Page ID</source>
+			</trans-unit>
+			<trans-unit id="maincategoryId" resname="maincategoryId">
+				<source>Main Category ID</source>
+			</trans-unit>
+			<trans-unit id="tx_tccdexamples_domain_model_tccd" resname="tx_tccdexamples_domain_model_tccd">
+				<source>Tccd</source>
+			</trans-unit>
+			<trans-unit id="tx_tccdexamples_domain_model_tccd.title" resname="tx_tccdexamples_domain_model_tccd.title">
+				<source>Title</source>
+			</trans-unit>
+			<trans-unit id="tx_tccdexamples_domain_model_tccd.description" resname="tx_tccdexamples_domain_model_tccd.description">
+				<source>Description</source>
+			</trans-unit>
+			<trans-unit id="tx_tccdexamples_domain_model_tccd.categories" resname="tx_tccdexamples_domain_model_tccd.categories">
+				<source>Categories</source>
+			</trans-unit>
+			<trans-unit id="tx_tccdexamples_domain_model_tccd.syllabusdescription" resname="tx_tccdexamples_domain_model_tccd.syllabusdescription">
+				<source>Syllabus description</source>
+			</trans-unit>
+			<trans-unit id="tx_tccdexamples_domain_model_tccd.version" resname="tx_tccdexamples_domain_model_tccd.version">
+				<source>Version</source>
+			</trans-unit>
+			<trans-unit id="tx_tccdexamples_domain_model_tccd.link" resname="tx_tccdexamples_domain_model_tccd.link">
+				<source>Redirect Link</source>
+			</trans-unit>
+			<trans-unit id="tx_tccdexamples_domain_model_tccd.links" resname="tx_tccdexamples_domain_model_tccd.links">
+				<source>Links</source>
+			</trans-unit>
+			<trans-unit id="tx_tccdexamples_domain_model_tccd.slug" resname="tx_tccdexamples_domain_model_tccd.slug">
+				<source>Slug</source>
+			</trans-unit>
+			<trans-unit id="tx_tccdexamples_domain_model_tccd.edited" resname="tx_tccdexamples_domain_model_tccd.edited">
+				<source>Edited</source>
+			</trans-unit>
+			<trans-unit id="tx_tccdexamples_domain_model_tccd.related_tccds" resname="tx_tccdexamples_domain_model_tccd.related_tccds">
+				<source>Related Tccds</source>
+			</trans-unit>
+			<trans-unit id="tx_tccdexamples_domain_model_tccd.makenewtranslation" resname="tx_tccdexamples_domain_model_tccd.makenewtranslation">
+				<source>Make new translation</source>
+			</trans-unit>
+			<trans-unit id="tx_tccdexamples_domain_model_tccd.images" resname="tx_tccdexamples_domain_model_tccd.images">
+				<source>Images</source>
+			</trans-unit>
+			<trans-unit id="tx_tccd_examples_tccdplugin.name" resname="tx_tccd_examples_tccdplugin.name">
+				<source>TCCD Plugin</source>
+			</trans-unit>
+			<trans-unit id="tx_tccd_examples_tccdplugin.description" resname="tx_tccd_examples_tccdplugin.description">
+				<source>Plugin for TCCD examples</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

@@ -1,0 +1,14 @@
+# Enable preview from TYPO3 backend for datasets [B]
+TCEMAIN.preview {
+    tx_tccdexamples_domain_model_tccd {
+        previewPageId = 9
+        useDefaultLanguageRecord = 0
+        fieldToParameterMap {
+            uid = tx_tccdexamples_tccdpluginshow[tccd]
+        }
+        additionalGetParameters {
+            tx_tccdexamples_tccdpluginshow.controller = Tccd
+            tx_tccdexamples_tccdpluginshow.action = show
+        }
+    }
+}

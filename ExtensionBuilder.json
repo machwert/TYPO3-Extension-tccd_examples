@@ -1,0 +1,167 @@
+{
+    "modules": [
+        {
+            "config": {
+                "position": [
+                    199,
+                    216
+                ]
+            },
+            "name": "New Model Object",
+            "value": {
+                "actionGroup": {
+                    "_default0_index": true,
+                    "_default1_list": true,
+                    "_default2_show": true,
+                    "_default3_new_create": true,
+                    "_default4_edit_update": true,
+                    "_default5_delete": true,
+                    "customActions": [
+                        "translation"
+                    ]
+                },
+                "name": "Tccd",
+                "objectsettings": {
+                    "addDeletedField": true,
+                    "addHiddenField": true,
+                    "addStarttimeEndtimeFields": true,
+                    "aggregateRoot": true,
+                    "categorizable": true,
+                    "description": "",
+                    "mapToTable": "",
+                    "parentClass": "",
+                    "sorting": true,
+                    "type": "Entity",
+                    "uid": "1109218270127"
+                },
+                "propertyGroup": {
+                    "properties": [
+                        {
+                            "allowedFileTypes": "",
+                            "maxItems": "1",
+                            "propertyDescription": "Title",
+                            "propertyIsExcludeField": true,
+                            "propertyIsL10nModeExclude": false,
+                            "propertyIsNullable": false,
+                            "propertyIsRequired": true,
+                            "propertyName": "title",
+                            "propertyType": "String",
+                            "uid": "1644302872095"
+                        },
+                        {
+                            "allowedFileTypes": "",
+                            "maxItems": "1",
+                            "propertyDescription": "Description",
+                            "propertyIsExcludeField": true,
+                            "propertyIsL10nModeExclude": false,
+                            "propertyIsNullable": false,
+                            "propertyIsRequired": false,
+                            "propertyName": "description",
+                            "propertyType": "RichText",
+                            "uid": "988571570144"
+                        },
+                        {
+                            "allowedFileTypes": "",
+                            "maxItems": "1",
+                            "propertyDescription": "Version",
+                            "propertyIsExcludeField": true,
+                            "propertyIsL10nModeExclude": false,
+                            "propertyIsNullable": false,
+                            "propertyIsRequired": true,
+                            "propertyName": "version",
+                            "propertyType": "Select",
+                            "uid": "1209489174366"
+                        },
+                        {
+                            "allowedFileTypes": "",
+                            "maxItems": "1",
+                            "propertyDescription": "Slug",
+                            "propertyIsExcludeField": true,
+                            "propertyIsL10nModeExclude": false,
+                            "propertyIsNullable": false,
+                            "propertyIsRequired": true,
+                            "propertyName": "slug",
+                            "propertyType": "Slug",
+                            "uid": "512180457250"
+                        },
+                        {
+                            "allowedFileTypes": "",
+                            "maxItems": "1",
+                            "propertyDescription": "",
+                            "propertyIsExcludeField": true,
+                            "propertyIsL10nModeExclude": false,
+                            "propertyIsNullable": false,
+                            "propertyIsRequired": false,
+                            "propertyName": "edited",
+                            "propertyType": "Boolean",
+                            "uid": "1203469898401"
+                        }
+                    ]
+                },
+                "relationGroup": {
+                    "relations": []
+                }
+            }
+        }
+    ],
+    "properties": {
+        "backendModules": [
+            {
+                "actions": {
+                    "controllerActionCombinations": "Tccd => list, translation"
+                },
+                "description": "Module for TCCD examples",
+                "key": "tccdmodule",
+                "mainModule": "web",
+                "name": "TCCD Module",
+                "tabLabel": "TCCD Module"
+            }
+        ],
+        "description": "This extension tests TYPO3 functionality based on the syllabus for TYPO3 v11 for preparation for TYPO3 Certified Developer Certification (TCCD).",
+        "emConf": {
+            "category": "example",
+            "custom_category": "",
+            "dependsOn": "typo3 => 11.5.0-11.5.99\n",
+            "disableLocalization": false,
+            "disableVersioning": false,
+            "generateDocumentationTemplate": true,
+            "generateEditorConfig": false,
+            "generateEmptyGitRepository": false,
+            "sourceLanguage": "en",
+            "state": "beta",
+            "targetVersion": "11.5.0-11.5.99",
+            "version": "0.0.1"
+        },
+        "extensionKey": "tccd_examples",
+        "name": "TCCD examples",
+        "originalExtensionKey": "",
+        "originalVendorName": "",
+        "persons": [
+            {
+                "company": "machwert",
+                "email": "typo3@machwert.de",
+                "name": "Volker Golbig",
+                "role": "Developer"
+            }
+        ],
+        "plugins": [
+            {
+                "actions": {
+                    "controllerActionCombinations": "Tccd => index, show, list, new, create, edit, update, delete",
+                    "noncacheableActions": "Tccd => new, create, edit, update, delete"
+                },
+                "description": "Plugin for TCCD examples",
+                "key": "tccdplugin",
+                "name": "TCCD Plugin"
+            }
+        ],
+        "vendorName": "Machwert"
+    },
+    "wires": [],
+    "storagePath": "\/Applications\/MAMP\/htdocs\/typo3_v11\/cms\/typo3conf\/ext\/",
+    "log": {
+        "last_modified": "2024-01-30 01:30",
+        "extension_builder_version": "11.0.9",
+        "be_user": " (1)"
+    }
+}

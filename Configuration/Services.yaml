@@ -1,0 +1,16 @@
+services:
+  _defaults:
+    autowire: true # Logging API [12]
+    autoconfigure: true
+    public: false
+
+  Machwert\TccdExamples\:
+    resource: '../Classes/*'
+    exclude: '../Classes/Domain/Model/*'
+
+  Machwert\TccdExamples\EventListener\OwnHrefLang: # Extending Existing Functionality [16] - PSR-14 events (Goal 2)
+    tags:
+      - name: event.listener
+        identifier: 'tccdExamples/ownHrefLang'
+        after: 'typo3-seo/hreflangGenerator'
+        event: TYPO3\CMS\Frontend\Event\ModifyHrefLangTagsEvent

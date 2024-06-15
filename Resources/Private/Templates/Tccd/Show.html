@@ -1,0 +1,63 @@
+<html xmlns:tccd="http://typo3.org/ns/Machwert/TccdExamples/ViewHelpers" xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:layout name="Default"/>
+
+This template is responsible for displaying a single view for a domain object
+
+If you modify this template, do not forget to change the overwrite settings
+in /Configuration/ExtensionBuilder/settings.yaml:
+Resources:
+Private:
+Templates:
+Tccd:
+Show.html: keep
+
+Otherwise your changes will be overwritten the next time you save the extension in the extension builder
+
+<f:section name="content">
+
+    <f:flashMessages/>
+    <f:render partial="Tccd/Properties" arguments="{tccd:tccd, settings:settings}"/>
+
+    <f:if condition="{categorytccds -> f:count()} > 1">
+        <h2><f:translate key="tx_tccdexamples.tccds-related-headline" /></h2>
+        <ul class="tccds-related">
+        <f:for each="{categorytccds}" as="categorytccd">
+            <f:if condition="{tccd.uid} != {categorytccd.uid}">
+                <li><f:link.action action="show" arguments="{tccd : categorytccd}">{categorytccd.title}</f:link.action></li>
+            </f:if>
+        </f:for>
+        </ul>
+    </f:if>
+
+    <f:if condition="{settings.testViewHelper}">
+        <p style="color:red"><tccd:categoryCounter /></p>
+    </f:if>
+
+    <f:link.page pageUid="{settings.listPid}">Back to list</f:link.page>
+    <br/>
+    <f:link.action action="new">New Tccd</f:link.action>
+
+    <f:asset.script identifier="tccdexamplesshow" priority="1" src="EXT:tccd_examples/Resources/Public/vendor/prism-1.29/prism.js" />
+    <f:asset.css identifier="tccdexamplesshow" href="EXT:tccd_examples/Resources/Public/vendor/prism-1.29/prism.css" />
+
+    <script>
+        window.Prism = window.Prism || {};
+        window.Prism.manual = true;
+        // Alle pre-Elemente auswählen
+        let preElements = document.querySelectorAll("pre");
+
+        // Iteriere über jedes pre-Element
+        preElements.forEach(pre => {
+            // Grab the text out of it
+            let code = pre.innerText;
+            // Highlight it
+            let highlighted = Prism.highlight(code, Prism.languages.javascript, 'javascript');
+            // Setze den hervorgehobenen Code als HTML zurück
+            pre.innerHTML = '<code class="language-php">'+highlighted+'</code>';
+        });
+    </script>
+
+
+</f:section>
+
+</html>

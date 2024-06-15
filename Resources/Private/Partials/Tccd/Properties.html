@@ -1,0 +1,30 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+
+
+<h1>{tccd.title}</h1>
+
+<f:if condition="{tccd.syllabusdescription}">
+	<h2><f:translate key="tx_tccdexamples_domain_model_tccd.syllabusdescription" /></h2>
+	<f:format.raw>{tccd.syllabusdescription}</f:format.raw>
+</f:if>
+
+<f:if condition="{tccd.description}">
+	<f:format.raw>{tccd.description}</f:format.raw>
+</f:if>
+
+<f:if condition="{tccd.version} == 1">
+	<h2><f:translate key="tx_tccdexamples_domain_model_tccd.version" /></h2>
+	<p>TYPO3 v11</p>
+</f:if>
+
+<f:comment>[4] - File abstraction layer (FAL)</f:comment>
+<f:if condition="{tccd.images}">
+	<div class="tccd-images">
+		<f:for each="{tccd.images}" as="image">
+			<div class="tccd-image-item">
+				<f:image src="{image.uid}" alt="" treatIdAsReference="TRUE" width="{settings.detail.imageWidth}" height="{settings.detail.imageHeight}" />
+			</div>
+		</f:for>
+	</div>
+</f:if>
+</html>

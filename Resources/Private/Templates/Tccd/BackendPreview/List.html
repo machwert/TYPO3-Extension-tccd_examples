@@ -1,0 +1,46 @@
+<f:comment>Backend plugin preview with record list [A]</f:comment>
+
+<f:asset.css identifier="ce-preview-shortcut-container">
+    .reference {
+    position: relative;
+    margin-left: 0;
+    margin-right: 0;
+    }
+
+    .reference .t3-page-ce {
+    margin: 0;
+    }
+
+    .t3-page-ce .reference .t3-page-ce-body {
+    border: 1px solid #ccc;
+    }
+    .t3-page-ce:hover .reference .t3-page-ce-body {
+    border: 1px solid #aaa;
+    box-shadow: none;
+    }
+
+    .reference-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #427BAB;
+    opacity: 0.15;
+    filter: alpha(opacity=15);
+    }
+</f:asset.css>
+
+
+<div class="t3-page-ce t3js-page-ce reference" id="element-tt_content-{identifier}">
+
+    <div class="t3-page-ce-body">
+        <div class="t3-page-ce-body-inner">
+			<span class="exampleContent">
+				{data -> f:format.raw()}
+			</span>
+        </div>
+    </div>
+
+    <div class="reference-overlay"></div>
+</div>

@@ -1,0 +1,33 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:layout name="Default" />
+<f:section name="content">
+    <f:render partial="Tccd/ListAndSearch" arguments="{tccds:tccds,settings:settings,searchTerm:searchTerm}" />
+
+    <f:asset.script identifier="javascript-escaping-exampe">
+        document.addEventListener('DOMContentLoaded', function() {
+            i = 0;
+            <f:alias map="{ocb: '{', ccb: '}'}">
+                <f:for each="{searchParameter}" as="parameterValue" key="parameterKey">
+                    if({parameterValue} != 0) {ocb}
+                        document.getElementById("{parameterKey}").checked = true;
+                        i++;
+                    {ccb}
+                </f:for>
+            </f:alias>
+            if (i > 0) {
+                let formSearchDetails = document.getElementById("form-searchdetails");
+                let btnSearchDetails = document.getElementById("btn-searchdetails");
+                slideDown(formSearchDetails);
+                btnSearchDetails.textContent = "-";
+            }
+
+            <f:if condition="{searchTerm}">
+                document.getElementById("sword").value = "{searchTerm}";
+            </f:if>
+        });
+    </f:asset.script>
+</f:section>
+</html>
+
+
+

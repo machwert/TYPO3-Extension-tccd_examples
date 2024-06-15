@@ -1,0 +1,47 @@
+<T3DataStructure>
+    <meta>
+        <langDisable>1</langDisable>
+    </meta>
+    <sheets>
+        <sDEF>
+            <ROOT>
+                <sheetTitle>
+                    LLL:EXT:tccd_examples/Resources/Private/Language/locallang_db.xlf:pi_flexform.sheetGeneral
+                </sheetTitle>
+                <type>array</type>
+                <el>
+                    <settings.listPid>
+                        <label>
+                            LLL:EXT:tccd_examples/Resources/Private/Language/locallang_db.xlf:listPid
+                        </label>
+                        <config>
+                            <type>group</type>
+                            <allowed>pages</allowed>
+                            <maxitems>1</maxitems>
+                            <minitems>0</minitems>
+                            <size>1</size>
+                            <suggestOptions>
+                                <default>
+                                    <additionalSearchFields>nav_title, alias, url</additionalSearchFields>
+                                    <addWhere>AND pages.doktype = 1</addWhere>
+                                </default>
+                            </suggestOptions>
+                        </config>
+                    </settings.listPid>
+                    <settings.maincategoryId>
+                        <label>
+                            LLL:EXT:tccd_examples/Resources/Private/Language/locallang_db.xlf:maincategoryId
+                        </label>
+                        <config>
+                            <type>group</type>
+                            <allowed>sys_category</allowed>
+                            <maxitems>1</maxitems>
+                            <minitems>0</minitems>
+                            <size>1</size>
+                        </config>
+                    </settings.maincategoryId>
+                </el>
+            </ROOT>
+        </sDEF>
+    </sheets>
+</T3DataStructure>

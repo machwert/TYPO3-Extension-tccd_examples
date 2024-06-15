@@ -1,0 +1,91 @@
+config.cache = 1
+config.cache_hash {
+    excludedParameters {
+        1 = tx_tccdexamples_tccdpluginlist|showhidden
+        2 = tx_tccdexamples_tccdpluginlist|showdeleted
+        3 = tx_tccdexamples_tccdpluginlist|ignorestorage
+    }
+}
+
+config.pageTitleProviders.tccd_examples {
+    provider = Machwert\TccdExamples\PageTitle\MyRecordTitleProvider
+    before = altPageTitle,record,seo
+}
+
+config.tx_tccd_examples {
+    canonicalRedirectPaths = {$config.tx_tccdexamples_canonicalredirect.canonicalRedirectPaths}
+    log {
+        enable = {$config.tx_tccdexamples_canonicalredirect.log.enable}
+        file = {$config.tx_tccdexamples_canonicalredirect.log.file}
+    }
+    redirect {
+        enable = {$config.tx_tccdexamples_canonicalredirect.redirect.enable}
+        statusCode = {$config.tx_tccdexamples_canonicalredirect.redirect.statusCode}
+    }
+}
+
+plugin.tx_tccdexamples_tccdplugin {
+    view {
+        templateRootPaths.0 = EXT:tccd_examples/Resources/Private/Templates/
+        templateRootPaths.1 = {$plugin.tx_tccdexamples_tccdplugin.view.templateRootPath}
+        partialRootPaths.0 = EXT:tccd_examples/Resources/Private/Partials/
+        partialRootPaths.1 = {$plugin.tx_tccdexamples_tccdplugin.view.partialRootPath}
+        layoutRootPaths.0 = EXT:tccd_examples/Resources/Private/Layouts/
+        layoutRootPaths.1 = {$plugin.tx_tccdexamples_tccdplugin.view.layoutRootPath}
+    }
+    persistence {
+        storagePid = {$plugin.tx_tccdexamples_tccdplugin.persistence.storagePid}
+        #recursive = 1
+    }
+    features {
+        #skipDefaultArguments = 1
+        # if set to 1, the enable fields are ignored in BE context
+        ignoreAllEnableFieldsInBe = 0
+    }
+    mvc {
+        #callDefaultActionIfActionCantBeResolved = 1
+    }
+}
+plugin.tx_tccdexamples {
+    settings {
+        detail.imageWidth = {$plugin.tx_tccdexamples.settings.detail.imageWidth}
+        detail.imageHeight = {$plugin.tx_tccdexamples.settings.detail.imageHeight}
+        listPid = {$plugin.tx_tccdexamples.settings.listPid}
+        maincategoryId = {$plugin.tx_tccdexamples.settings.maincategoryId}
+        testViewHelper = {$plugin.tx_tccdexamples.settings.testViewHelper}
+    }
+}
+
+# Module configuration
+module.tx_tccdexamples_web_tccdexamplestccdmodule {
+    persistence {
+        storagePid = {$plugin.tx_tccdexamples_tccdplugin.persistence.storagePid}
+    }
+    view {
+        templateRootPaths.0 = EXT:tccd_examples/Resources/Private/Backend/Templates/
+        templateRootPaths.1 = {$module.tx_tccdexamples_tccdmodule.view.templateRootPath}
+        partialRootPaths.0 = EXT:tccd_examples/Resources/Private/Backend/Partials/
+        partialRootPaths.1 = {$module.tx_tccdexamples_tccdmodule.view.partialRootPath}
+        layoutRootPaths.0 = EXT:tccd_examples/Resources/Private/Backend/Layouts/
+        layoutRootPaths.1 = {$module.tx_tccdexamples_tccdmodule.view.layoutRootPath}
+    }
+    settings {
+        googleTranslatorApiKey = {$module.tx_tccdexamples_tccdmodule.settings.googleTranslatorApiKey}
+        translateLimit = {$module.tx_tccdexamples_tccdmodule.settings.translateLimit}
+    }
+}
+
+plugin {
+    tx_tccdexamples {
+        features {
+            requireCHashArgumentForActionArguments = 0
+        }
+    }
+}
+page.includeCSSLibs.tccdexamples = EXT:tccd_examples/Resources/Public/Css/tccdexamples.css
+
+#Extending Existing Functionality [16] - 3. UserFunctions
+page.1010 = USER
+page.1010 {
+    userFunc = Machwert\TccdExamples\UserFunctions\CachedTime->printTime
+}

@@ -1,0 +1,50 @@
+<html
+        xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+        xmlns:be="http://typo3.org/ns/TYPO3/CMS/Backend/ViewHelpers"
+        data-namespace-typo3-fluid="true">
+
+<f:layout name="Default" />
+
+If you modify this template, do not forget to change the overwrite settings
+in /Configuration/ExtensionBuilder/settings.yaml:
+  Resources:
+    Private:
+      Templates:
+        Tccd:
+          Tranlation.html: keep
+
+Otherwise your changes will be overwritten the next time you save the extension in the extension builder
+
+<f:section name="Buttons">
+  <be:moduleLayout.button.linkButton
+          icon="actions-add"
+          title="{f:translate(id: 'LLL:EXT:backend/Resources/Private/Language/locallang_layout.xlf:newRecordGeneral')}"
+          link="{f:uri.action(controller: 'Tccd', action: 'new')}"
+  />
+</f:section>
+
+<f:section name="Content">
+  <h1>Template for translation action</h1>
+  <f:if condition="{settings.translateLimit}">
+    <p>Limit for dataset translations: {settings.translateLimit}</p><br>
+  </f:if>
+
+  <f:for each="{websiteLanguages}" as="websiteLanguage">
+    <f:link.action action="translation" arguments="{language : websiteLanguage.uid}" class="btn">{websiteLanguage.title}</f:link.action>
+  </f:for>
+
+  <f:if condition="{translatedCount} > 0">
+    <br><hr><br>
+    <p><b>{translatedCount} datesets were translated:</b></p>
+    <ul>
+    <f:for each="{translatedDatasets}" as="translatedDataset">
+      <li>{translatedDataset}</li>
+    </f:for>
+    </ul>
+    <br><hr>
+    <f:asset.script identifier="translateBackendScript" src="EXT:tccd_examples/Resources/Public/JavaScript/TranslationModule.js" />
+  </f:if>
+
+
+</f:section>
+</html>

@@ -1,0 +1,99 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:layout name="Default" />
+<f:section name="content">
+    <h2>Filter</h2>
+
+    <div class="maincat-filter">
+        <f:for each="{tccdsCategories}" as="tccdsCategory">
+            <f:if condition="{tccdsCategory.parent} == {settings.maincategoryId}">
+                <f:if condition="{tccdsCategory.uid} == {selectedMainCategory}">
+                    <f:then>
+                        <f:link.action action="list" arguments="{category : tccdsCategory.uid}" class="btn active">{tccdsCategory.title}</f:link.action>
+                    </f:then>
+                    <f:else>
+                        <f:link.action action="list" arguments="{category : tccdsCategory.uid}" class="btn">{tccdsCategory.title}</f:link.action>
+                    </f:else>
+                </f:if>
+            </f:if>
+        </f:for>
+    </div>
+    <f:if condition="{selectedCategory}">
+        <div class="subcat-filter">
+            <f:for each="{tccdsCategories}" as="tccdsSubCategory">
+                <f:if condition="{tccdsSubCategory.parent} == {selectedMainCategory}">
+                    <f:if condition="{tccdsSubCategory.uid} == {selectedCategory}">
+                        <f:then>
+                            <f:link.action action="list" arguments="{category : tccdsSubCategory.uid}" class="btn active">{tccdsSubCategory.title}</f:link.action>
+                        </f:then>
+                        <f:else>
+                            <f:link.action action="list" arguments="{category : tccdsSubCategory.uid}" class="btn">{tccdsSubCategory.title}</f:link.action>
+                        </f:else>
+                    </f:if>
+                </f:if>
+            </f:for>
+        </div>
+    </f:if>
+
+    <f:form method="post" controller="Tccd" pluginName="TccdpluginList" action="search" name="search" enctype="multipart/form-data">
+        <f:form.hidden name="category" value="{selectedCategory}" />
+        <div class="searchterm-filter">
+            <div id="form-searchdetails">
+                <div class="searchdetail-config">
+                    <fieldset>
+                        <div class="checkboxes">
+                            <f:form.checkbox id="showhidden" name="showhidden" value="1" />
+                            <label for="showhidden">Show hidden</label>
+                            <f:form.checkbox id="showdeleted" name="showdeleted" value="1" />
+                            <label for="showdeleted">Show hidden and deleted</label>
+                            <f:form.checkbox id="ignorestorage" name="ignorestorage" value="1" />
+                            <label for="ignorestorage">Show also entries from other storage folders</label>
+                        </div>
+                    </fieldset>
+                </div>
+            </div>
+            <fieldset>
+                <div class="searchbox">
+                    <f:form.textfield id="sword" class="input-searchfield" name="sword" placeholder="Suchbegriff" />
+                    <button id="btn-searchdetails" title="Show more search options">+</button>
+                    <input type="submit" class="search-submit" value="Search" />
+                </div>
+            </fieldset>
+        </div>
+    </f:form>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            let btnSearchDetails = document.getElementById("btn-searchdetails");
+            let formSearchDetails = document.getElementById("form-searchdetails");
+
+            let isFormVisible = false;
+
+            btnSearchDetails.addEventListener("click", function (event) {
+                event.preventDefault();
+                if (isFormVisible) {
+                    slideUp(formSearchDetails);
+                    btnSearchDetails.textContent = "+";
+                } else {
+                    slideDown(formSearchDetails);
+                    btnSearchDetails.textContent = "-";
+                }
+
+                isFormVisible = !isFormVisible;
+            });
+        });
+
+        function slideDown(element) {
+            element.style.display = "block";
+            element.style.maxHeight = element.scrollHeight + "px";
+        }
+
+        function slideUp(element) {
+            element.style.maxHeight = "0";
+            setTimeout(function () {
+                element.style.display = "none";
+            }, 500);
+        }
+    </script>
+
+</f:section>
+</html>
